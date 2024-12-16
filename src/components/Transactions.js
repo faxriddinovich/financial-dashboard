@@ -106,7 +106,7 @@ function Transactions({balance,currentCurrency,updateBalance}) {
 
             const matchesDateRange = updatedFilters.startDate && updatedFilters.endDate
                 ? new Date(transaction.date) >= new Date(updatedFilters.startDate) &&
-                new Date(transaction.date) <= new Date(updatedFilters.endDate)
+                new Date(transaction.date) <= new Date(new Date(updatedFilters.endDate).setDate(new Date(updatedFilters.endDate).getDate() + 1))
                 : true;
 
             return matchesType && matchesCategory && matchesDateRange;
