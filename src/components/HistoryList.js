@@ -30,7 +30,7 @@ function HistoryList({transactions,categories}){
                                                     slots={{transition: Fade,}}
                                                     slotProps={{transition: {timeout: 600},}}
                                                 >
-                                                    <span>{categories.find((item) => item.value === transaction.category).name}</span>
+                                                    <span className={'transaction-info'}>{categories.find((item) => item.value === transaction.category).name}</span>
                                                 </Tooltip> /
                                                 <Tooltip
                                                     title={"Tranzaksiya sanasi"}
@@ -38,7 +38,7 @@ function HistoryList({transactions,categories}){
                                                     slots={{transition: Fade,}}
                                                     slotProps={{transition: {timeout: 600},}}
                                                 >
-                                                    <span>{transaction.date}</span>
+                                                    <span className={'transaction-info'}>{transaction.date}</span>
                                                 </Tooltip> /
                                                 <Tooltip
                                                     title={"Tranzaksiya izohi"}
@@ -46,7 +46,7 @@ function HistoryList({transactions,categories}){
                                                     slots={{transition: Fade,}}
                                                     slotProps={{transition: {timeout: 600},}}
                                                 >
-                                                    <span>{transaction.description}</span>
+                                                    <span className={'transaction-info'}>{transaction.description}</span>
                                                 </Tooltip>
                                             </Typography>
                                         </React.Fragment>

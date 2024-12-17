@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import {useEffect, useRef, useState} from "react";
 import '../assets/styles/data-picker.css'
 
-export default function CustomDateRangePicker({handleFilterChange}) {
+export default function CustomDateRangePicker({handleFilterChange,isLargeScreen}) {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
 
@@ -34,7 +34,7 @@ export default function CustomDateRangePicker({handleFilterChange}) {
         }
     };
     return (
-        <>
+        <div className={'datepicker-container d-flex'}>
             <DatePicker
                 selected={startDate}
                 onChange={(date)=>handleDateChange(date,'startDate')}
@@ -44,7 +44,11 @@ export default function CustomDateRangePicker({handleFilterChange}) {
                 placeholderText="Boshlanish sanasi"
                 dateFormat="dd.MM.yyyy"
                 className={'form-control form-control-sm'}
-             showMonthYearDropdown/>
+                showMonthYearDropdown
+                style={{
+                    width: !isLargeScreen && '100%',
+                }}
+            />
             <DatePicker
                 selected={endDate}
                 onChange={(date)=>handleDateChange(date,'endDate')}
@@ -55,7 +59,9 @@ export default function CustomDateRangePicker({handleFilterChange}) {
                 placeholderText="Tugash sanasi"
                 dateFormat="dd.MM.yyyy"
                 className={'form-control form-control-sm'}
-             showMonthYearDropdown/>
-        </>
+                showMonthYearDropdown
+                fullWidth={isLargeScreen}
+            />
+        </div>
     );
 }

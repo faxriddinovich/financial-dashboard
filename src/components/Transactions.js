@@ -12,6 +12,8 @@ import {
 import HistoryList from "./HistoryList";
 import AppBar from "./AppBar";
 
+import '../assets/styles/transactions-responsive.css'
+
 function Transactions({balance,currentCurrency,updateBalance}) {
 
     const categories = [
@@ -162,19 +164,15 @@ function Transactions({balance,currentCurrency,updateBalance}) {
             .then(data => setRates(data.rates));
     }, []);
     return (
-        <div>
-            <p className={'m-0 p-0'}>Sizning balansingiz:</p>
-            <h1 className={'m-0'}>{balance.toFixed(2)} {currentCurrency}</h1>
+        <div className={'my-2'}>
+            <p className={'m-0 p-0 balance-title'} >Sizning balansingiz:</p>
+            <h1 className={'m-0 balance'}>{balance.toFixed(2)} {currentCurrency}</h1>
 
             <AppBar
-                handleHistoryChange={handleHistoryChange}
-                transactionHistory={transactionHistory}
                 toggleModal={toggleModal}
                 categories={categories}
-                category={filterCategory}
                 filterValues={filterValues}
                 handleFilterChange={handleFilterChange}
-                handleCategoryChange={handleCategoryChange}
             />
 
             <HistoryList categories={categories} transactions={transactions} />

@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import {TransitionGroup} from "react-transition-group";
 import Slide from '@mui/material/Slide';
 
+import '../assets/styles/currencies-responsive.css'
+
 function Currencies(){
     const [rates, setRates] = useState([]);
 
@@ -21,8 +23,8 @@ function Currencies(){
     }, []);
     return (
         <>
-            <h3 className={'text-center my-3'}>Valyutalarning dollarga nisbatan kurslari</h3>
-            <ul className="list-group">
+            <h3 className={'text-center my-3 currency-title'}>Valyutalarning dollarga nisbatan kurslari</h3>
+            <ul className="list-group currency-list">
                 <TransitionGroup>
                     {rates?.map((rate, index) => (
                         <Slide key={index} direction={"up"} in={true} mountOnEnter unmountOnExit timeout={300 + 500 * index}>

@@ -1,5 +1,5 @@
 import './App.css';
-import {Box, Tab, Tabs} from "@mui/material";
+import {Box, Tab, Tabs, useMediaQuery} from "@mui/material";
 import {useState} from "react";
 import CurrencyConverter from "./components/CurrencyConverter";
 import Dashboard from "./components/Dashboard";
@@ -34,6 +34,8 @@ function App() {
   const [balance, setBalance] = useState(Number(localStorage.getItem('balance')) || 0);
   const [currentCurrency, setCurrentCurrency] = useState('USD');
 
+  const isSmallScreen = useMediaQuery("(max-width:540px)");
+
   const handleChangeTab = (event, newTab) => {
     setActiveTab(newTab);
     localStorage.setItem('activeTab', newTab);
@@ -48,7 +50,13 @@ function App() {
    <div className={'container'}>
      <div className="row">
        <div className="col-12">
-         <Tabs value={activeTab} onChange={handleChangeTab} variant="fullWidth">
+         <Tabs
+             value={activeTab}
+             onChange={handleChangeTab}
+             variant={isSmallScreen ? "scrollable" : "fullWidth"}
+             scrollButtons="auto"
+             allowScrollButtonsMobile
+         >
            <Tab label={"Valyutalar"} {...tabsProps(0)} wrapped />
            <Tab label={"Tranzaksiyalar"} {...tabsProps(1)} />
            <Tab label={"Konverter"} {...tabsProps(2)} />

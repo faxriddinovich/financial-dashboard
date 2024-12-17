@@ -1,0 +1,52 @@
+@media (max-width: 540px) {
+    .balance {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .balance-title{
+        font-size: 13px;
+    }
+
+    .app-bar-container{
+        margin-top: 10px;
+        min-height: 50px;
+        padding: 0 10px;
+    }
+
+    .app-bar-title{
+        font-size: 14px;
+    }
+
+    .transaction-info{
+        font-size: 11px;
+    }
+
+    .datepicker-container{
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .datepicker-container .react-datepicker-wrapper{
+        width: 100%;
+    }
+}
+
+@media (max-width: 770px) {
+    .datepicker-container{
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .datepicker-container .react-datepicker-wrapper{
+        width: 100%;
+    }
+}
+
+@media (min-width: 771px) and (max-width: 1200px) {
+    .datepicker-container{
+        gap: 10px;
+        justify-content: end;
+        width: 100%;
+    }
+    .datepicker-container .react-datepicker-wrapper{
+        width: 50%;
+    }
+}

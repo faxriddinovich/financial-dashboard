@@ -1,0 +1,22 @@
+@media (max-width: 770px) {
+    .chart-container{
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .outcomes,.incomes{
+        width: 100%;
+        text-align: center;
+    }
+    .incomes{
+        border-top: 1px solid #ddd;
+    }
+}
+
+@media (min-width: 771px) {
+    .outcomes,.incomes{
+        width: 50%;
+    }
+    .outcomes{
+        border-right: 1px solid #ddd;
+    }
+}

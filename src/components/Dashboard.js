@@ -1,9 +1,14 @@
 import { PieChart } from '@mui/x-charts/PieChart';
 import {useEffect, useState} from "react";
+import {useMediaQuery} from "@mui/material";
+
+import '../assets/styles/dashboard-responsive.css'
 
 const ExpenseChart = ({currentCurrency,balance}) => {
 
     const [rates, setRates] = useState({});
+
+    const isMedium = useMediaQuery('(max-width: 770px)');
 
     const data = JSON.parse(localStorage.getItem('transactions')) || [];
 
@@ -87,8 +92,8 @@ const ExpenseChart = ({currentCurrency,balance}) => {
                     <h3 className={'m-0'}>{balance.toFixed(2) + " " + currentCurrency}</h3>
                 </div>
             </div>
-            <div className={'w-100 d-flex align-items-center mt-3'}>
-                <div className="outcomes w-50 border-right px-2">
+            <div className={'w-100 d-flex align-items-center mt-3 chart-container'}>
+                <div className="outcomes px-2">
                     <p className={'m-0'}>Sizning umumiy xarajatlaringiz:</p>
                     <h4 className={'text-danger'}>{outcome + " " + currentCurrency}</h4>
 
@@ -96,13 +101,16 @@ const ExpenseChart = ({currentCurrency,balance}) => {
                         series={[
                             {
                                 data: outcomes,
+                                highlightScope: { fade: 'global', highlight: 'item' },
+                                faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                             },
                         ]}
+                        margin={{right: 150}}
                         cx={100}
                         height={350}
                     />) : (<b className={'text-center'}>Sizda tranzaksiyalar mavjud emas...</b>)}
                 </div>
-                <div className="incomes w-50 px-3">
+                <div className="incomes px-3">
                     <div className={'ml-3'}>
                         <p className={'m-0'}>Sizning umumiy daromadlaringiz:</p>
                         <h4 className={'text-success'}>{income + " " + currentCurrency}</h4>
@@ -111,8 +119,11 @@ const ExpenseChart = ({currentCurrency,balance}) => {
                         series={[
                             {
                                 data: incomes,
+                                highlightScope: { fade: 'global', highlight: 'item' },
+                                faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                             },
                         ]}
+                        margin={{right: 150}}
                         cx={100}
                         height={350}
                     />) : (<b className={'text-center'}>Sizda tranzaksiyalar mavjud emas...</b>)}

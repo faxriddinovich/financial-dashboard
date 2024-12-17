@@ -51,7 +51,7 @@ const CurrencyConverter = () => {
                 </div>
             </Slide>
             <Grow in={true} timeout={800}>
-                <button onClick={convert} className={'btn btn-outline-primary my-2'}>Konvertatsiya qilish</button>
+                <button onClick={convert} className={'btn btn-outline-primary my-2 btn-sm'}>Konvertatsiya qilish</button>
             </Grow>
         </div>
     );

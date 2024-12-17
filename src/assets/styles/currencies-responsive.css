@@ -1,0 +1,11 @@
+@media (max-width: 575px) {
+    .currency-title{
+        font-size: 20px;
+    }
+    .currency-list b{
+        font-size: 14px;
+    }
+    .currency-list p{
+        font-size: 14px;
+    }
+}
